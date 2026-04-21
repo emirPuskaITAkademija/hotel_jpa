@@ -49,6 +49,29 @@ Sistem za početak ima **2 nivoa pristupa**:
 2. **MySQL** - relaciona baza podataka
 3. **JPA + ORM** (ORM -> Hibernate/Eclipselink/MyBatis) - za most između baze i aplikacije
 
+### Build/Plugins
+
+Plugins definiraju kako se **aplikacija pokreće i bilda**:
+- maven-compiler-plugin -> kompajlira Java kod JDK 21
+- javafx-maven-plugin -> pokreće JavaFx aplikaciju
+
+Pokretanje aplikacije 
+> mvn clean javafx:run
+
+**Šta radi ova komanda**:
+ - clean - briše target/ folder(stari bild)
+ - javafx:run - koristi JavaFX plugin da
+   - automatski doda
+     - --module-path
+     - --add-modules javafx.controls, javafx.fxml
+
+**Bitno** - 
+JavaFx nije dio JDK-a od Java 9+. Ako pokreneš
+aplikaciju preko Intellij Play dugmeta možeš dobiti error:
+> JavaFx runtime components are missing
+
+Zato mi koristimo: 
+>mvn javafx:run
 ---
 ## Kako doprinijeti ? 
 Ako želiš da doprineseš razvoju ove aplikacije slobodni otvori **issue** ili **pull request**! :-)
